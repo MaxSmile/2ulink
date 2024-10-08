@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "About",
+    "href": "/i/about"
+  },
+  {
+    "id": 2,
+    "name": "Pricing",
+    "href": "/i/pricing"
+  },
+  {
+    "id": 3,
+    "name": "Terms",
+    "href": "/i/terms"
+  },
+  {
+    "id": 4,
+    "name": "Privacy",
+    "href": "/i/privacy"
+  }
+]

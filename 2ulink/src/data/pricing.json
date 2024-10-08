@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Portfolio 1",
+    "categories": ["marketing"],
+    "thumb": "01.jpg",
+    "featuredVideo": true,
+    "videoLink": "https://www.youtube.com/watch?v=Hl3ZnQp4_S0"
+  },
+  {
+    "id": 2,
+    "title": "Portfolio 2",
+    "categories": ["web", "marketing"],
+    "thumb": "02.jpg",
+    "featuredVideo": false,
+    "videoLink": null
+  },
+  {
+    "id": 3,
+    "title": "Portfolio 3",
+    "categories": ["graphics", "web", "marketing"],
+    "thumb": "03.jpg",
+    "featuredVideo": false,
+    "videoLink": null
+  },
+  {
+    "id": 4,
+    "title": "Portfolio 4",
+    "categories": ["marketing", "graphics"],
+    "thumb": "04.jpg",
+    "featuredVideo": false,
+    "videoLink": null
+  },
+  {
+    "id": 5,
+    "title": "Portfolio 5",
+    "categories": ["web"],
+    "thumb": "05.jpg",
+    "featuredVideo": false,
+    "videoLink": null
+  },
+  {
+    "id": 6,
+    "title": "Portfolio 6",
+    "categories": ["graphics"],
+    "thumb": "06.jpg",
+    "featuredVideo": false,
+    "videoLink": null
+  }
+]

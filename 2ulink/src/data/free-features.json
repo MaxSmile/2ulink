@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Fast URL Shortening",
+    "desc": "Easily convert long URLs into short, manageable links.",
+    "icon": "Link"
+  },
+  {
+    "id": 2,
+    "title": "Custom Links",
+    "desc": "Create custom short links that are memorable and brand-specific.",
+    "icon": "Pen"
+  },
+  {
+    "id": 3,
+    "title": "QR Code Generation",
+    "desc": "Generate QR codes for your shortened URLs for easy sharing.",
+    "icon": "QRCode"
+  }
+]
