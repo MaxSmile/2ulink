@@ -1,0 +1,20 @@
+{
+  "hosting": {
+    "site": "2ulink",
+    "name": "2ulink",
+    "cleanUrls": true,
+    "project": "ul-top",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
