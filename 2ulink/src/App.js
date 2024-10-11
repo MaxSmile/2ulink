@@ -1,23 +1,14 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import HeroArea from "./components/HeroArea";
-import Features from "./components/Features";
-import HomeAboutSection from "./components/HomeAboutSection";
-import ClarificationSection from "./components/ClarificationSection";
+// src/App.js
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import RootPage from './pages/RootPage';
+import RedirectionPage from './pages/RedirectionPage';
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Header />
-      <main style={{ minHeight: "75vh" }}>
-        <HeroArea />
-        <Features />
-        <HomeAboutSection />
-        <ClarificationSection />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<RootPage />} />
+      <Route path="/:slug" element={<RedirectionPage />} />
+    </Routes>
   );
 }
-
-export default App;

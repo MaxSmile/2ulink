@@ -1,6 +1,8 @@
 # 2ulink
 ULR shortener frontend was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Build Status](https://img.shields.io/github/actions/workflow/status/MaxSmile/2ulink/firebase-hosting-merge.yml)
+
 ## Available Scripts
 
 In the project directory, you can run:
