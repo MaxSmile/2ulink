@@ -1,6 +1,6 @@
 {
   "name": "2ulink",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "private": true,
   "dependencies": {
     "hamburger-react": "^2.5.1",

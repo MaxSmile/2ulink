@@ -90,6 +90,10 @@ ul, ol {
   @apply bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded m-4;
 }
 
+.close-btn {
+  float: right;
+}
+
 .button-teal {
   @apply py-2 px-4 bg-dark text-yellow-100 text-lg rounded hover:bg-teal-600;
 }
