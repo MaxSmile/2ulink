@@ -92,7 +92,7 @@ ul, ol {
 
 .close-btn {
   float: right;
-  @apply bg-red-200 rounded rounded-full;
+  @apply bg-red-200 rounded-full p-2 ml-1;
 }
 
 .button-teal {
