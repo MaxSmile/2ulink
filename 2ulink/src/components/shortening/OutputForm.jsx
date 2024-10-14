@@ -59,7 +59,7 @@ export default function OutputForm() {
             <div className="mb-8" id="result">
                 {errorMessage && (
                     <div className="alert-error text-lg text-left">
-                        <button className="close-btn" onClick={() => { setInputState(true); setErrorMessage('')}}>
+                        <button className="close-btn" onClick={() => { setInputState(true); setErrorMessage('') }}>
                             &times;
                         </button>
                         {errorMessage}
@@ -77,44 +77,47 @@ export default function OutputForm() {
                                 </span>
                             </div>
                             <div className="flex justify-center space-x-4 text-center sm:ml-0 lg:ml-24 lg:w-3/4">
-                            
+
                                 <button
                                     onClick={copyToClipboard}
                                     className="button-teal mt-4"
                                 >
                                     {copied}
-                                </button> 
+                                </button>
                                 <button
                                     onClick={shareUrl}
                                     className="button-teal mt-4"
                                 >
                                     {share}
                                 </button>
-                                <button onClick={() => {setInputState(true); setResultingUrl('')}} 
-                                        className="button-teal mt-4">
+                                <button onClick={() => { setInputState(true); setResultingUrl('') }}
+                                    className="button-teal mt-4">
                                     Make another
                                 </button>
                             </div>
                         </div>
                         <div className="text-left mt-4 text-lg">
-                        <a
-                            href={`${CLIENT_URL}?reason=custom-name`}
-                            className="text-blue-600 pl-8 hover:underline cursor-pointer"
-                        >
-                            Would you like to customize your short URL? It's free with account.
-                        </a>
-                        <br />
-                        <button
-                            onClick={() => {setShowQRCode(!showQRCode)}}
-                            className="text-blue-600 pl-8 hover:underline cursor-pointer"
-                        >
-                            Would you like to generate a QR code with your short URL?
-                        </button>
+                            <p>
+                                <a
+                                    href={`${CLIENT_URL}?reason=custom-name`}
+                                    className="text-blue-600 pl-8 hover:underline cursor-pointer"
+                                >
+                                    Would you like to customize your short URL? It's free with account.
+                                </a>
+                            </p>
+
+                            <br />
+                            <button
+                                onClick={() => { setShowQRCode(!showQRCode) }}
+                                className="text-blue-600 pl-8 hover:underline cursor-pointer"
+                            >
+                                Would you like to generate a QR code with your short URL?
+                            </button>
                         </div>
-                        {showQRCode && <QRCodeBox value={`${BASE_URL}/${resultingUrl}`} />} 
+                        {showQRCode && <QRCodeBox value={`${BASE_URL}/${resultingUrl}`} />}
                     </>
                 )}
-                
+
             </div>
         </div>
     )
