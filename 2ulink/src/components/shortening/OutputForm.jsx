@@ -68,7 +68,7 @@ export default function OutputForm() {
                 {resultingUrl && (
                     <>
                         <div className="items-center bg-swirly-arrow pb-16">
-                            <div className="ml-24 border-2 border-dark py-2 px-4 rounded bg-white w-3/4 overflow-auto">
+                            <div className="sm:ml-0 lg:ml-24 border-2 border-dark py-2 px-4 rounded bg-white lg:w-3/4 overflow-auto">
                                 <span className="text-dark">
                                     {BASE_URL}/
                                 </span>
@@ -76,7 +76,7 @@ export default function OutputForm() {
                                     {resultingUrl}
                                 </span>
                             </div>
-                            <div className="flex justify-center space-x-4 text-center ml-24 w-3/4">
+                            <div className="flex justify-center space-x-4 text-center sm:ml-0 lg:ml-24 lg:w-3/4">
                             
                                 <button
                                     onClick={copyToClipboard}
