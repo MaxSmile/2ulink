@@ -1,6 +1,6 @@
 
 const BASE_URL = process.env.BASE_URL || 'https://2ul.top'
-const API_BASE_URL = process.env.API_BASE_URL || 'https://api.2ul.top'
+const API_BASE_URL = process.env.API_BASE_URL || '/api'
 const CLIENT_URL = process.env.CLIENT_URL || 'https://client.2ul.top'
 const API_WRITE_SHRTN_DATA =
   process.env.API_WRITE_SHRTN_DATA || '/urls';
