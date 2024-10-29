@@ -47,6 +47,7 @@ function Redirecting({ data, countdown, showManualRedirect }) {
 
 export default function RedirectionView({ code }) {
   const fetcher = (url) => fetch(url).then((res) => res.json());
+  console.log("code", `${API_URL}${code}`);
   const { data, error } = useSWR(`${API_URL}${code}`, fetcher);
   const [countdown, setCountdown] = useState(-1);
   const [isLoading, setIsLoading] = useState(true);
@@ -55,11 +56,11 @@ export default function RedirectionView({ code }) {
 
   // Set loading state
   useEffect(() => {
-
     if (countdown > 0) {
       setTimeout(() => setCountdown(countdown - 1), 1000);
     } else if (countdown === 0) {
-      window.location.href = data.originalURL;
+      console.log("data.originalURL", data.originalURL);
+      //window.location.href = data.originalURL;
       setShowManualRedirect(true);
     } else {
       if (data !== undefined) {

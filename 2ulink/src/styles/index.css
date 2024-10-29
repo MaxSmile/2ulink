@@ -80,6 +80,7 @@ ul, ol {
   background-size: 100px 100px;
   background-position: top left;
 }
+
 .bg-swirly-arrow {
   background: url('/public/imgs/swirly-arrow.svg') no-repeat;
   background-size: 100px 100px;
@@ -92,7 +93,8 @@ ul, ol {
 
 .close-btn {
   float: right;
-  @apply bg-red-200 rounded-full p-2 ml-1;
+  line-height: 0;
+  @apply p-0 ml-1 -mr-2;
 }
 
 .button-teal {

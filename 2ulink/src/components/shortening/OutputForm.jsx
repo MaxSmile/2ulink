@@ -67,7 +67,7 @@ export default function OutputForm() {
                 )}
                 {resultingUrl && (
                     <>
-                        <div className="items-center lg:bg-swirly-arrow pb-16">
+                        <div className="items-center bg-swirly-arrow lg:pb-16 pb-32">
                             <div className="sm:ml-0 lg:ml-24 border-2 border-dark py-2 px-4 rounded bg-white lg:w-3/4 overflow-auto">
                                 <span className="text-dark">
                                     {BASE_URL}/
@@ -96,7 +96,7 @@ export default function OutputForm() {
                                 </button>
                             </div>
                         </div>
-                        <div className="text-left mt-4 text-lg">
+                        <div className="text-center mt-4 text-lg">
                             <p>
                                 <a
                                     href={`${CLIENT_URL}?reason=custom-name`}
