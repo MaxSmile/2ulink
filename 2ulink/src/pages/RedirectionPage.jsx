@@ -1,6 +1,7 @@
 // src/pages/RedirectionPage.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import RedirectionView from '../components/RedirectionView';
 
 export default function RedirectionPage () {
   // Capture the slug from the URL
@@ -10,7 +11,7 @@ export default function RedirectionPage () {
   return (
     <div>
       <h1>Page for slug: {slug}</h1>
-      {/* You can fetch data based on the slug or display content */}
+      <RedirectionView code={slug} />
     </div>
   );
 };

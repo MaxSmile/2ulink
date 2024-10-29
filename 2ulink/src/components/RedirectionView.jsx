@@ -26,8 +26,8 @@ function Redirecting({ data, countdown, showManualRedirect }) {
     <>
       {countdown >= 0 && <p className="text-gray-500">Redirecting in {countdown} seconds...</p>}
       <div className="w-16 h-16 border-4 border-t-4 border-t-blue-500 rounded-full animate-spin mb-4"></div>
-      <div className="ads-placeholder mt-4">
-        {/* Your ad content here */}
+      <div className="ads-placeholder mt-4 border">
+        <p>Your ad iframe content here</p> 
       </div>
       {showManualRedirect && (
         <p className="mt-4">
