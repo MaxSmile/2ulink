@@ -23,13 +23,16 @@ function LoadingView({ code }) {
   );
 }
 
-function RedirectingAdsFrame() {
+function RedirectingAdsFrame({ code }) {
   return (
-
-    <div className="ads-placeholder mt-4 border w-full">
-      <p>Your ad iframe content here</p>
+    <div className="ads-placeholder mt-4 border w-full h-[90vh] flex justify-center items-center">
+      <iframe
+        src={`https://i.2ul.top/ads?a=${code}`}
+        title="Advertisement"
+        className="w-full h-full border-none"
+        style={{ maxWidth: '100%', height: '90%' }}
+      />
     </div>
-
   );
 }
 
@@ -46,7 +49,7 @@ const CountdownComponent = ({ callback, originalUrl, errorLabel }) => {
     return <>
       {errorLabel ?
         <ErrorView error={errorLabel} />
-        : <p className="mt-4">
+        : <span>
           If you are not redirected, please go to&nbsp;
           <a
             href={originalUrl}
@@ -55,7 +58,7 @@ const CountdownComponent = ({ callback, originalUrl, errorLabel }) => {
           >
             this link
           </a>.
-        </p>}
+        </span>}
     </>
   }
   return (
@@ -98,15 +101,13 @@ export default function RedirectionView({ code }) {
       ) : (
         <>
           <div className="mx-auto text-xl bg-gray-100 p-4">
-
             <CountdownComponent callback={handleRedirect}
               originalUrl={destinationUrl}
               errorLabel={errorLabel}
             />
-
           </div>
           <RedirectingAdsFrame
-            data={data}
+            code={code}
           />
         </>
       )}
