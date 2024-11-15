@@ -8,8 +8,13 @@ import { FaGithub } from 'react-icons/fa6'
 import { API_BASE_URL } from '../data/constants.js'
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+    let year = ''+currentYear;
+    if (currentYear !== 2024) {
+        year = `2024 - ${currentYear}`;
+    }
     return (
-        <footer className="bg-white pt-10 md:pt-14 lg:pt-5 pb-5 relative hcard">
+        <footer className="bg-white pt-10 md:pt-14 lg:pt-5 pb-5 relative hcard" role="contentinfo">
             <div className="container">
                 <div className="text-center lg:text-left lg:flex justify-between items-center">
                     <div className="flex justify-between items-center">
@@ -20,12 +25,12 @@ const Footer = () => {
                                 href="https://github.com/MaxSmile/2ulink"
                                 target="_blank" rel="noopener noreferrer"
                             >
-                                <FaGithub className="inline ml-2" />&nbsp;<span 
+                                <FaGithub className="inline ml-2" />&nbsp;<span
                                     className="text-xs text-gray-500 hover:underline">
                                     v.{version}</span>
                             </a>
                             <br />
-                            &copy; {new Date().getFullYear()} <span className="org">2ul Ltd</span>. All rights reserved. 
+                            &copy; {year} <span className="org">2ul Ltd</span>. All rights reserved.
                         </p>
                     </div>
 

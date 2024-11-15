@@ -19,6 +19,7 @@ const HomeAboutSection = () => {
                                 className="rounded-md"
                                 src={'/2ul-logo.svg'}
                                 alt="2ul.top logo"
+                                loading="lazy"
                             />
                     </div>
 

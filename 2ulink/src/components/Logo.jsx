@@ -10,6 +10,7 @@ const Logo = ({className, chain=true}) => {
                     width={60}
                     height={60}
                     src={chain?'/2ul-chain-logo.svg':'/2ul-logo.svg'}
+                    loading="lazy"
                 />
         </a>
     );
