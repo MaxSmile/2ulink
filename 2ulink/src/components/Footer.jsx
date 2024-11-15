@@ -1,3 +1,4 @@
+// src/components/Footer.jsx
 import Logo from './Logo'
 import { animateScroll } from 'react-scroll'
 import { IoIosArrowUp } from 'react-icons/io'
@@ -8,7 +9,7 @@ import { API_BASE_URL } from '../data/constants.js'
 
 const Footer = () => {
     return (
-        <footer className="bg-white pt-10 md:pt-14 lg:pt-5 pb-5 relative">
+        <footer className="bg-white pt-10 md:pt-14 lg:pt-5 pb-5 relative hcard">
             <div className="container">
                 <div className="text-center lg:text-left lg:flex justify-between items-center">
                     <div className="flex justify-between items-center">
@@ -23,17 +24,20 @@ const Footer = () => {
                                     className="text-xs text-gray-500 hover:underline">
                                     v.{version}</span>
                             </a>
+                            <br />
+                            &copy; {new Date().getFullYear()} <span className="org">2ul Ltd</span>. All rights reserved. 
                         </p>
                     </div>
 
                     <p className="text-gray-500 mt-4 lg:mt-0">
-                        &copy;2012-{new Date().getFullYear()}{' '}
+                        Contacts: <a href="mailto:support@ul.top" className="email hover:underline">support@ul.top</a>
+                        <br />
                         <a
                             href="https://vasilkoff.com"
                             target="_blank" rel="noopener noreferrer"
-                            className="hover:underline"
+                            className="hover:underline url"
                         >
-                            Vasilkoff Ltd - Web Development and Design
+                            Tech and Design by Vasilkoff Ltd
                         </a>
                     </p>
                 </div>
