@@ -31,6 +31,10 @@ const Footer = () => {
                             </a>
                             <br />
                             &copy; {year} <span className="org">2ul Ltd</span>. All rights reserved.
+                            <br/>
+                            20 Wenlock Road, London, England, N1 7GU 
+                            <br/>
+                            (Reg.#16072411, DUNS#232653132)
                         </p>
                     </div>
 
