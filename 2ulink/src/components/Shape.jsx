@@ -1,3 +1,4 @@
+// src/components/Shape.jsx
 const Shape = ({className, fillColor}) => {
     return (
         <div className={`absolute left-0 bottom-0 w-full ${className ?? ""}`}>

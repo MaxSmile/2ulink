@@ -1,3 +1,4 @@
+// src/components/SectionTitle.jsx
 const SectionTitle = ({title, className}) => {
     return (
         <div className={`mb-12 ${className ?? ""}`}>
