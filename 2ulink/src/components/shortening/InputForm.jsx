@@ -13,9 +13,11 @@ export default function InputForm({ onResult }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (url === '') {
+    const trimmedUrl = url.trim();
+
+    if (trimmedUrl === '') {
       onResult({ success: false, error: 'Please enter a URL, empty string is not allowed' });
-    } else if (!skipValidation && !isValidURL(url)) {
+    } else if (!skipValidation && !isValidURL(trimmedUrl)) {
       onResult({ success: false, error: 'Please enter a valid URL (including http[s] or ftp protocol prefix)' });
     } else {
       try {
@@ -26,7 +28,7 @@ export default function InputForm({ onResult }) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            originalURL: url,
+            originalURL: trimmedUrl,
           }),
         });
 

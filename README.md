@@ -1,5 +1,5 @@
 # 2ulink
-ULR shortener frontend was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+URL shortener frontend built with React and Vite.
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/MaxSmile/2ulink/firebase-hosting-merge.yml)
 
@@ -9,6 +9,22 @@ ULR shortener frontend was bootstrapped with [Create React App](https://github.c
 - **Customizable Redirection Pages**: Add custom HTML, ads, or analytics to redirection pages.
 - **QR Code Generation**: Create and download QR codes for shortened links.
 
+## How It Works
+
+- **Shorten flow**: `InputForm` validates input (optionally skips validation), then POSTs to the API endpoint and returns a `mappingID` on success.
+- **Result flow**: `OutputForm` shows the short URL, enables copy/share, and optionally displays a QR code.
+- **Redirect flow**: `RedirectionView` fetches the original URL via SWR and counts down before redirecting, with error handling and a manual fallback link.
+
+## Runtime Configuration
+
+Browser-side config uses Vite env variables:
+
+- `VITE_BASE_URL`
+- `VITE_API_BASE_URL`
+- `VITE_CLIENT_URL`
+- `VITE_API_WRITE_SHRTN_DATA`
+- `VITE_API_READ_SHRTN_DATA`
+- `VITE_REDIRECT_DELAY_TIME`
 
 ## Available Scripts
 
@@ -16,65 +32,29 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in development mode.\
+Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
+You may also see any runtime errors in the console.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `dist` folder.\
+It bundles React in production mode and optimizes the build for performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run preview`
 
-### `npm run eject`
+Serves the production build locally for verification.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `npm test`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Runs unit tests with Vitest and React Testing Library.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-# TODO
+## TODO
 
 1. Clean code from not used files
-2. Add tests
+2. Add more tests

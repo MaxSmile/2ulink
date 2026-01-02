@@ -1,7 +1,7 @@
 // components/RedirectionView.jsx
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { API_BASE_URL, API_READ_SHRTN_DATA, REDIRECT_DELAY_TIME } from '../data/constants';
 
@@ -36,44 +36,54 @@ function RedirectingAdsFrame({ code }) {
   );
 }
 
-const CountdownComponent = ({ callback, originalUrl, errorLabel }) => {
-  const [countdown, setCountdown] = useState(DELAY_SEC);
+export const CountdownComponent = ({
+  callback,
+  originalUrl,
+  errorMessage,
+  initialSeconds = DELAY_SEC,
+}) => {
+  const [countdown, setCountdown] = useState(initialSeconds);
 
-  if (countdown > 0) {
-    setTimeout(() => setCountdown(countdown - 1), 1000);
-  } else if (countdown === 0) {
-    callback();
-  }
+  useEffect(() => {
+    if (countdown <= 0) {
+      callback();
+      return;
+    }
+
+    const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [callback, countdown]);
 
   if (countdown <= 0) {
-    return <>
-      {errorLabel ?
-        <ErrorView error={errorLabel} />
-        : <span>
-          If you are not redirected, please go to&nbsp;
-          <a
-            href={originalUrl}
-            className="text-blue-500 underline"
-            aria-label={`Redirect manually to ${originalUrl}`}
-          >
-            this link
-          </a>.
-        </span>}
-    </>
+    return (
+      <>
+        {errorMessage ? (
+          <ErrorView error={{ message: errorMessage }} />
+        ) : (
+          <span>
+            If you are not redirected, please go to&nbsp;
+            <a
+              href={originalUrl}
+              className="text-blue-500 underline"
+              aria-label={`Redirect manually to ${originalUrl}`}
+            >
+              this link
+            </a>.
+          </span>
+        )}
+      </>
+    );
   }
-  return (
-    <span>
-      Redirecting in {countdown} seconds
-    </span>
-  );
+
+  return <span>Redirecting in {countdown} seconds</span>;
 };
 
 export default function RedirectionView({ code }) {
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data } = useSWR(code ? `${API_URL}${code}` : null, fetcher);
   const [isLoading, setIsLoading] = useState(true);
-  const [errorLabel, setErrorLabel] = useState({});
-  const [destinationUrl, setDestinationUrl] = useState(window.location.href);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [destinationUrl, setDestinationUrl] = useState(() => window.location.href);
 
   useEffect(() => {
     if (data) {
@@ -81,16 +91,20 @@ export default function RedirectionView({ code }) {
       setDestinationUrl(data.originalURL || window.location.href);
     }
     if (data?.error) {
-      setErrorLabel({ message: data.error });
+      setErrorMessage(data.error);
+    } else {
+      setErrorMessage('');
     }
   }, [code, data]);
 
 
   const handleRedirect = () => {
-    if (data?.originalURL) {
+    if (data?.originalURL && !errorMessage) {
       window.location.href = destinationUrl;
     } else {
-      setErrorLabel({ message: 'Invalid redirect URL' });
+      if (!errorMessage) {
+        setErrorMessage('Invalid redirect URL');
+      }
     }
   };
 
@@ -101,9 +115,10 @@ export default function RedirectionView({ code }) {
       ) : (
         <>
           <div className="mx-auto text-xl bg-gray-100 p-4">
-            <CountdownComponent callback={handleRedirect}
+            <CountdownComponent
+              callback={handleRedirect}
               originalUrl={destinationUrl}
-              errorLabel={errorLabel}
+              errorMessage={errorMessage}
             />
           </div>
           <RedirectingAdsFrame
@@ -114,4 +129,3 @@ export default function RedirectionView({ code }) {
     </div>
   );
 }
-
